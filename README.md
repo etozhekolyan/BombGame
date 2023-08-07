@@ -15,8 +15,8 @@ Swift Marathon 8.0 Challenge | **Team №9**
 <br>
 <br>
 
-------
-### Team
+
+## Team
 
 <table>
     <tr>
