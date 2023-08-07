@@ -49,7 +49,7 @@ Swift Marathon 8.0 Challenge | **Team №9**
   </div></td>
     </tr>
     <tr>
-        <td> Nikolay <div id="badges">
+        <td> Nikolay Vasilchenko<div id="badges">
     <a href="https://github.com/etozhekolyan">
   <img src="https://img.shields.io/badge/etozhekolyan-white?style=flat&logo=GitHub&logoColor=white&color=black">
   </a>
