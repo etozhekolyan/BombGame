@@ -38,17 +38,17 @@ class GameEndViewController: UIViewController {
     
     private func applyConstraints() {
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(75)
+            make.top.equalToSuperview().inset(60)
             make.leading.trailing.equalToSuperview().inset(150)
         }
         
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview().inset(10)
         }
         
         imageView.snp.makeConstraints { make in
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(30)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(25)
             make.leading.equalToSuperview().inset(71)
             make.trailing.equalToSuperview().inset(55)
             make.height.equalTo(300)
@@ -57,13 +57,12 @@ class GameEndViewController: UIViewController {
         taskLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(10)
-            make.height.equalTo(65)
         }
         
         anotherTaskButton.snp.makeConstraints { make in
             make.top.equalTo(taskLabel.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(50)
-            make.height.equalTo(79)
+            make.height.equalTo(70)
         }
         
         startOverButton.snp.makeConstraints { make in
@@ -81,7 +80,7 @@ private extension GameEndViewController {
         label.text = "Игра"
         label.textColor = UIColor(named: "textColor")
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
+        label.font = UIFont(name: "Dela Gothic One", size: 28)
         return label
     }
     
@@ -91,7 +90,7 @@ private extension GameEndViewController {
         label.numberOfLines = 0
         label.textColor = .black
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
+        label.font = UIFont(name: "Dela Gothic One", size: 24)
         return label
     }
     
@@ -106,18 +105,17 @@ private extension GameEndViewController {
         label.text = "В следующем раунде после каждого ответа хлопать в ладоши"
         label.numberOfLines = 0
         label.textColor = UIColor(named: "textColor")
-        label.addSpaceBetweenLines(spacingValue: 6)
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+        label.font = UIFont(name: "Dela Gothic One", size: 20)
         return label
     }
     
     var _anotherTaskButton: UIButton {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(named: "buttonColor")
-        button.setTitle("Другое\nзадание", for: .normal)
+        button.setTitle("Другое\nЗадание", for: .normal)
         button.tintColor = UIColor(named: "buttonTextColor")
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
+        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 24)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 40
@@ -128,11 +126,11 @@ private extension GameEndViewController {
     
     var _startOverButton: UIButton {
         let button = UIButton(type: .system)
-        button.setTitle("Начать\nзаново", for: .normal)
+        button.setTitle("Начать\nЗаново", for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center
         button.backgroundColor = UIColor(named: "buttonColor")
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
+        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 24)
         button.tintColor = UIColor(named: "buttonTextColor")
         button.layer.cornerRadius = 40
         button.clipsToBounds = true
