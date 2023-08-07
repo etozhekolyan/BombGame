@@ -19,7 +19,7 @@ extension UIViewController {
 
 extension UILabel {
 
-    func addSpaceBetweenLines(spacingValue: CGFloat = 2) {
+    func addSpaceBetweenLines(spacingValue: CGFloat) {
         guard let textString = text else { return }
 
         let attributedString = NSMutableAttributedString(string: textString)

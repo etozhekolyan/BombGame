@@ -65,7 +65,7 @@ private extension GameViewController {
         label.text = "Игра"
         label.textColor = UIColor(named: "textColor")
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
+        label.font = UIFont(name: "Dela Gothic One", size: 28)
         return label
     }
     
@@ -75,7 +75,7 @@ private extension GameViewController {
         label.numberOfLines = 0
         label.textColor = UIColor(named: "textColor")
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
+        label.font = UIFont(name: "Dela Gothic One", size: 28)
         return label
     }
     
@@ -88,7 +88,7 @@ private extension GameViewController {
     var _launchButton: UIButton {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(named: "buttonColor")
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
+        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 24)
         button.setTitle("Запустить", for: .normal)
         button.tintColor = UIColor(named: "buttonTextColor")
         button.layer.cornerRadius = 40
