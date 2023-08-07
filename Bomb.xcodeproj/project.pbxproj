@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90DDB9AB2A8132E70080C5AF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 90DDB9AA2A8132E70080C5AF /* SnapKit */; };
 		CBDBC9382A8119E6003F22E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDBC9372A8119E6003F22E0 /* AppDelegate.swift */; };
 		CBDBC93A2A8119E6003F22E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDBC9392A8119E6003F22E0 /* SceneDelegate.swift */; };
 		CBDBC93C2A8119E6003F22E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDBC93B2A8119E6003F22E0 /* MainViewController.swift */; };
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90DDB9AB2A8132E70080C5AF /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +66,6 @@
 			children = (
 				CBDBC9372A8119E6003F22E0 /* AppDelegate.swift */,
 				CBDBC9392A8119E6003F22E0 /* SceneDelegate.swift */,
-				CBDBC94E2A811C1E003F22E0 /* Models */,
 				CBDBC94D2A811C0F003F22E0 /* Controller */,
 				CBDBC9402A8119E7003F22E0 /* Assets.xcassets */,
 				CBDBC9422A8119E7003F22E0 /* LaunchScreen.storyboard */,
@@ -85,13 +86,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		CBDBC94E2A811C1E003F22E0 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -108,6 +102,9 @@
 			dependencies = (
 			);
 			name = Bomb;
+			packageProductDependencies = (
+				90DDB9AA2A8132E70080C5AF /* SnapKit */,
+			);
 			productName = Bomb;
 			productReference = CBDBC9342A8119E6003F22E0 /* Bomb.app */;
 			productType = "com.apple.product-type.application";
@@ -136,6 +133,9 @@
 				Base,
 			);
 			mainGroup = CBDBC92B2A8119E6003F22E0;
+			packageReferences = (
+				90DDB9A92A8132E70080C5AF /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = CBDBC9352A8119E6003F22E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -314,7 +314,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -344,7 +343,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -382,6 +380,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		90DDB9A92A8132E70080C5AF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		90DDB9AA2A8132E70080C5AF /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90DDB9A92A8132E70080C5AF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CBDBC92C2A8119E6003F22E0 /* Project object */;
 }
