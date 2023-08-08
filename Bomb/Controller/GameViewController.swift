@@ -10,9 +10,7 @@ import SnapKit
 
 class GameViewController: UIViewController {
 
-    private lazy var titleLabel: UILabel = _titleLabel
     private lazy var textLabel: UILabel = _textLabel
-    
     private lazy var imageView: UIImageView = _imageView
     private lazy var launchButton: UIButton = _launchButton
 
@@ -25,20 +23,14 @@ class GameViewController: UIViewController {
     }
     
     private func addSubviews() {
-        view.addSubview(titleLabel)
         view.addSubview(textLabel)
         view.addSubview(imageView)
         view.addSubview(launchButton)
     }
     
     private func applyConstraints() {
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(75)
-            make.leading.trailing.equalToSuperview().inset(150)
-        }
-        
         textLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(54)
+            make.top.equalToSuperview().offset(130)
             make.leading.trailing.equalToSuperview().inset(23)
         }
         
@@ -59,15 +51,6 @@ class GameViewController: UIViewController {
 }
 
 private extension GameViewController {
-    
-    var _titleLabel: UILabel {
-        let label = UILabel()
-        label.text = "Игра"
-        label.textColor = UIColor(named: "textColor")
-        label.textAlignment = .center
-        label.font = UIFont(name: "Dela Gothic One", size: 28)
-        return label
-    }
     
     var _textLabel: UILabel {
         let label = UILabel()
@@ -93,7 +76,11 @@ private extension GameViewController {
         button.tintColor = UIColor(named: "buttonTextColor")
         button.layer.cornerRadius = 40
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(didPressButton), for: .touchUpInside)
         button.drawShadow()
         return button
+    }
+    
+    @objc func didPressButton() {
     }
 }
