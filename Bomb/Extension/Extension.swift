@@ -48,4 +48,18 @@ extension UIView {
         self.layer.borderColor = UIColor.black.cgColor
         self.layer.borderWidth = 1.0
     }
+    
+}
+
+extension UIColor {
+    func getButtonColor() -> UIColor {
+        return UIColor(red: 129/255, green: 48/255, blue: 167/255, alpha: 1)
+    }
+    func getTextColor() -> UIColor {
+        return UIColor(red: 139/255, green: 61/255, blue: 218/255, alpha: 1)
+    }
+    
+    func getButtonTextColor() -> UIColor {
+        return UIColor(red: 250/255, green: 255/255, blue: 0, alpha: 1)
+    }
 }
