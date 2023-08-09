@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
         addSubviews()
         setConstraints()
         
-        debugPrint(UIFont.familyNames)
+      //  debugPrint(UIFont.familyNames)
     }
     
     
@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
         view.addSubview(startGameButton)
         view.addSubview(selectCategoryButton)
         view.addSubview(rulesButton)
-        
+//        
     }
     
     // функция старта игры
@@ -56,9 +56,10 @@ class MainViewController: UIViewController {
         
         labelGameText.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            labelGameText.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            labelGameText.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             labelGameText.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5),
             labelGameText.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5),
+  
             
         ])
         
@@ -67,38 +68,35 @@ class MainViewController: UIViewController {
             labelBombText.topAnchor.constraint(equalTo: labelGameText.bottomAnchor, constant: -20),
             labelBombText.trailingAnchor.constraint(equalTo: labelGameText.trailingAnchor),
             labelBombText.leadingAnchor.constraint(equalTo: labelGameText.leadingAnchor),
-            //labelBombText.heightAnchor.constraint(equalToConstant: 84)
-            
             
             
         ])
-        
+
         bombImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            bombImageView.topAnchor.constraint(equalTo: labelBombText.bottomAnchor, constant: 10),
-            bombImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5),
-            bombImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5),
-            bombImageView.heightAnchor.constraint(equalToConstant: 400),
-            //bombImageView.widthAnchor.constraint(equalToConstant: 400),
-            //bombImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            bombImageView.topAnchor.constraint(lessThanOrEqualTo: labelBombText.bottomAnchor, constant: 10),
+            bombImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+           bombImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
+            bombImageView.heightAnchor.constraint(greaterThanOrEqualToConstant: 280)
+
         ])
-        
-        
+
+
         startGameButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            startGameButton.topAnchor.constraint(equalTo: bombImageView.bottomAnchor, constant: 10),
-            startGameButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
-            startGameButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
-            startGameButton.heightAnchor.constraint(equalToConstant: 94)
-            
+           startGameButton.topAnchor.constraint(equalTo: bombImageView.bottomAnchor, constant: 10),
+           startGameButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 38),
+           startGameButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -38)
+          
+
         ])
         
         selectCategoryButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            selectCategoryButton.topAnchor.constraint(equalTo: startGameButton.bottomAnchor, constant: 20),
-            selectCategoryButton.trailingAnchor.constraint(equalTo: startGameButton.trailingAnchor),
-            selectCategoryButton.leadingAnchor.constraint(equalTo: startGameButton.leadingAnchor),
-            selectCategoryButton.heightAnchor.constraint(equalToConstant: 94)
+        selectCategoryButton.topAnchor.constraint(equalTo: startGameButton.bottomAnchor, constant: 20),
+        selectCategoryButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 38),
+        selectCategoryButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -38),
+       
         ])
         
         rulesButton.translatesAutoresizingMaskIntoConstraints = false
@@ -108,7 +106,7 @@ class MainViewController: UIViewController {
         rulesButton.widthAnchor.constraint(equalToConstant: 64),
         rulesButton.heightAnchor.constraint(equalToConstant: 64)
         ])
-        
+//
     }
 }
 
@@ -118,9 +116,11 @@ extension MainViewController {
    
     
     var _labelGameText: UILabel {
+        
         let label = UILabel()
         label.text = "Игра для компании"
         label.textColor = UIColor.black
+        label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.font = UIFont(name: "Dela Gothic One", size: 35)
         
@@ -130,6 +130,7 @@ extension MainViewController {
     var _labelBombText: UILabel {
         let label = UILabel()
         label.text = "БОМБА"
+        label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.textColor = UIColor(named: "textColor")
         label.font = UIFont(name: "Dela Gothic One", size: 60)
@@ -142,6 +143,10 @@ extension MainViewController {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "bombIcon")
         imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+     
+  
+  
         
         
         return imageView
@@ -155,7 +160,7 @@ extension MainViewController {
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 34)
         button.tintColor = UIColor(named: "buttonTextColor")
         button.backgroundColor = UIColor(named: "buttonColor")
-        button.layer.cornerRadius = 50
+        button.layer.cornerRadius = 35
         button.contentMode = .center
         
         // закомментил действие кнопки
@@ -170,7 +175,7 @@ extension MainViewController {
         button.tintColor = UIColor(named: "buttonTextColor")
         button.backgroundColor = UIColor(named: "buttonColor")
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 34)
-        button.layer.cornerRadius = 50
+        button.layer.cornerRadius = 35
         button.contentMode = .center
         
         // закомментил действие кнопки
