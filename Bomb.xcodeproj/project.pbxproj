@@ -67,6 +67,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		4F95F52A2A8420CF005B9CAE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4F95F5292A8420CB005B9CAE /* DelaGothicOne.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		CBDBC92B2A8119E6003F22E0 = {
 			isa = PBXGroup;
 			children = (

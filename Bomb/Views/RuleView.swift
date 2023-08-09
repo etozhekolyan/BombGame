@@ -52,7 +52,7 @@ class RuleView: UIView {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.sizeToFit()
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont(name: "DelaGothicOne", size: 16)
         return label
     }()
     

@@ -72,7 +72,7 @@ class RulesView: UIView {
         label.heightAnchor.constraint(equalToConstant: 96).isActive = true
         label.textAlignment = .center
         label.contentMode = .bottom
-        label.font = UIFont.systemFont(ofSize: 32)
+        label.font = UIFont(name: "DelaGothicOne", size: 24)
         label.textColor = UIColor(red: 130 / 255,
                                   green: 52 / 255,
                                   blue: 208 / 255,
