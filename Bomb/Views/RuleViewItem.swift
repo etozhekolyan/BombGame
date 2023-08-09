@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RuleView: UIView {
+class RuleViewItem: UIView {
     
     private let number: String
     private let rule: String?
