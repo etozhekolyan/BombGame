@@ -10,6 +10,7 @@ import UIKit
 class RulesView: UIView {
     
     private let categoryView = CategoryView()
+    private let contentView = UIView()
     private let rules = [
         Rule(numberOfRule: "1", ruleText: "Все игроки становятся в круг."),
         Rule(numberOfRule: "2", ruleText: "Первый игрок берет телефон \n и нажимает кнопку:"),
@@ -58,7 +59,7 @@ class RulesView: UIView {
         label.heightAnchor.constraint(equalToConstant: 96).isActive = true
         label.textAlignment = .center
         label.contentMode = .bottom
-        label.font = UIFont.systemFont(ofSize: 32)
+        label.font = UIFont(name: "Dela Gothic One", size: 32)
         label.textColor = UIColor(red: 130 / 255,
                                   green: 52 / 255,
                                   blue: 208 / 255,
@@ -72,7 +73,7 @@ class RulesView: UIView {
         label.heightAnchor.constraint(equalToConstant: 96).isActive = true
         label.textAlignment = .center
         label.contentMode = .bottom
-        label.font = UIFont(name: "DelaGothicOne", size: 24)
+        label.font = UIFont(name: "Dela Gothic One", size: 24)
         label.textColor = UIColor(red: 130 / 255,
                                   green: 52 / 255,
                                   blue: 208 / 255,
@@ -96,7 +97,7 @@ class RulesView: UIView {
         label.textAlignment = .center
         label.text = "Старт игры"
         label.textColor = .yellow
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont(name: "Dela Gothic One", size: 12)
         
         view.addSubview(label)
         return view
@@ -106,7 +107,7 @@ class RulesView: UIView {
         let label = UILabel()
         label.heightAnchor.constraint(equalToConstant: 150).isActive = true
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 24)
+        label.font = UIFont(name: "Dela Gothic One", size: 24)
         label.text = "Можно выбрать \n сразу несколько \n категорий для игры."
         label.numberOfLines = 0
         return label
@@ -116,7 +117,7 @@ class RulesView: UIView {
         let label = UILabel()
         label.heightAnchor.constraint(equalToConstant: 150).isActive = true
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 24)
+        label.font = UIFont(name: "Dela Gothic One", size: 24)
         label.text = "В игре доступно 6 \n категорий и более \n 90 вопросов."
         label.numberOfLines = 0
         return label
@@ -124,11 +125,12 @@ class RulesView: UIView {
 
     
     private func addToHierarchy() {
+        self.addSubview(backgroundImage)
         self.addSubview(scrollView)
-        scrollView.addSubview(backgroundImage)
-        backgroundImage.addSubview(stackView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(stackView)
         stackView.addArrangedSubview(headLabel)
-        stackView.addArrangedSubview(RuleViewItem(rule: rules[0], height: 100, exampleView: nil))
+        stackView.addArrangedSubview(RuleViewItem(rule: rules[0], height: 50, exampleView: nil))
         stackView.addArrangedSubview(RuleViewItem(rule: rules[1], height: 150, exampleView: exampleButtonView))
         stackView.addArrangedSubview(RuleViewItem(rule: rules[2], height: 100, exampleView: nil))
         stackView.addArrangedSubview(RuleViewItem(rule: rules[3], height: 150, exampleView: nil))
@@ -142,48 +144,47 @@ class RulesView: UIView {
     }
     
     private func setupLayouts() {
-        layoutScrollView()
         layoutBackgroundImage()
+        layoutScrollView()
+        layoutContentView()
         layoutStackView()
     }
     
+    private func layoutContentView() {
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+    }
+    
     private func layoutScrollView() {
-       scrollView.translatesAutoresizingMaskIntoConstraints = false
-       scrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-       scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-       scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-       scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
     private func layoutBackgroundImage() {
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
-        backgroundImage.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        backgroundImage.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        backgroundImage.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        backgroundImage.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        backgroundImage.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        backgroundImage.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        backgroundImage.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        backgroundImage.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        backgroundImage.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        backgroundImage.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
     private func layoutStackView() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: backgroundImage.topAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true
+        stackView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 }
 
-extension UIView {
 
-    func drawShadow() {
-        self.layer.shadowColor = UIColor.darkGray.cgColor
-        self.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
-        self.layer.masksToBounds = false
-        self.layer.shadowRadius = 2
-        self.layer.shadowOpacity = 0.5
-
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.borderWidth = 1.0
-    }
-    
-}

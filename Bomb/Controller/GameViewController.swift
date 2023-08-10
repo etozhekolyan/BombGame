@@ -29,7 +29,6 @@ class GameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         navigationController?.setNavigationBarTitle(for: self)
         navigationController?.addBackButton()
         navigationController?.addPauseButton()

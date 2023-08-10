@@ -66,7 +66,7 @@ class CategoryView: UIView {
     private func getCategotyNameLabel(_ name: String) -> UILabel {
         let label = UILabel(frame: CGRect(x: 9, y: 100, width: 128, height: 50))
         label.text = name
-        label.font = UIFont(name: "Dela Gothic One", size: 24)
+        label.font = UIFont(name: "Dela Gothic One", size: 16)
         label.textAlignment = .center
         label.textColor = .white
         label.numberOfLines = 0

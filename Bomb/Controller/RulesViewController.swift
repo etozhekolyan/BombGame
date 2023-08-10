@@ -11,6 +11,9 @@ class RulesViewController: UIViewController {
     private let rulesView = RulesView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Правила"
+        navigationController?.addBackButton()
+        navigationController?.setNavigationBarTitle(for: self)
     }
     
     override func loadView() {

@@ -41,8 +41,8 @@ class RuleViewItem: UIView {
     }()
     
     private let numberLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 10, y: 7, width: 16, height: 16))
-        label.font = UIFont.systemFont(ofSize: 16)
+        let label = UILabel(frame: CGRect(x: 7, y: 7, width: 16, height: 16))
+        label.font = UIFont(name: "Dela Gothic One", size: 16)
         label.textColor = .yellow
         return label
     }()
@@ -50,9 +50,9 @@ class RuleViewItem: UIView {
     private var ruleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.sizeToFit()
-        label.font = UIFont(name: "DelaGothicOne", size: 16)
+        label.font = UIFont(name: "Dela Gothic One", size: 16)
         return label
     }()
     
