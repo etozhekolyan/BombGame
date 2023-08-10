@@ -10,7 +10,6 @@ import SnapKit
 
 class GameEndViewController: UIViewController {
 
-    private lazy var titleLabel: UILabel = _titleLabel
     private lazy var descriptionLabel: UILabel = _descriptionLabel
     private lazy var taskLabel: UILabel = _taskLabel
     
@@ -28,7 +27,6 @@ class GameEndViewController: UIViewController {
     }
     
     private func addSubviews() {
-        view.addSubview(titleLabel)
         view.addSubview(descriptionLabel)
         view.addSubview(imageView)
         view.addSubview(taskLabel)
@@ -37,13 +35,8 @@ class GameEndViewController: UIViewController {
     }
     
     private func applyConstraints() {
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(60)
-            make.leading.trailing.equalToSuperview().inset(150)
-        }
-        
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.top.equalToSuperview().offset(110)
             make.leading.trailing.equalToSuperview().inset(10)
         }
         
@@ -55,14 +48,14 @@ class GameEndViewController: UIViewController {
         }
         
         taskLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(20)
+            make.top.equalTo(imageView.snp.bottom).offset(15)
             make.leading.trailing.equalToSuperview().inset(10)
         }
         
         anotherTaskButton.snp.makeConstraints { make in
             make.top.equalTo(taskLabel.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(50)
-            make.height.equalTo(70)
+            make.height.equalTo(79)
         }
         
         startOverButton.snp.makeConstraints { make in
@@ -74,15 +67,6 @@ class GameEndViewController: UIViewController {
 }
 
 private extension GameEndViewController {
-    
-    var _titleLabel: UILabel {
-        let label = UILabel()
-        label.text = "Игра"
-        label.textColor = UIColor(named: "textColor")
-        label.textAlignment = .center
-        label.font = UIFont(name: "Dela Gothic One", size: 28)
-        return label
-    }
     
     var _descriptionLabel: UILabel {
         let label = UILabel()

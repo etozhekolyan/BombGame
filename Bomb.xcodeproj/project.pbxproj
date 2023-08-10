@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		902E9D862A81491800E39655 /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E9D852A81491800E39655 /* GameEndViewController.swift */; };
 		902E9D892A8150AE00E39655 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E9D882A8150AE00E39655 /* Extension.swift */; };
-		902E9D8C2A815E4800E39655 /* DelaGothicOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 902E9D8B2A815E4800E39655 /* DelaGothicOne.ttf */; };
+		904203322A825EFF00E9DB64 /* DelaGothicOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 904203312A825EFF00E9DB64 /* DelaGothicOne.ttf */; };
 		90DDB9AB2A8132E70080C5AF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 90DDB9AA2A8132E70080C5AF /* SnapKit */; };
 		CBD19FA72A8575B8001E4730 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD19FA42A8575B8001E4730 /* CategoryView.swift */; };
 		CBD19FA82A8575B8001E4730 /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD19FA52A8575B8001E4730 /* RulesView.swift */; };
@@ -28,10 +28,12 @@
 /* Begin PBXFileReference section */
 		902E9D852A81491800E39655 /* GameEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
 		902E9D882A8150AE00E39655 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+
 		902E9D8B2A815E4800E39655 /* DelaGothicOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DelaGothicOne.ttf; sourceTree = "<group>"; };
 		CBD19FA42A8575B8001E4730 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CBD19FA52A8575B8001E4730 /* RulesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesView.swift; sourceTree = "<group>"; };
 		CBD19FA62A8575B8001E4730 /* RuleViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleViewItem.swift; sourceTree = "<group>"; };
+
 		CBDBC9342A8119E6003F22E0 /* Bomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bomb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDBC9372A8119E6003F22E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBDBC9392A8119E6003F22E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,10 +67,10 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		902E9D8A2A815E1F00E39655 /* Fonts */ = {
+		904203302A825EEE00E9DB64 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				902E9D8B2A815E4800E39655 /* DelaGothicOne.ttf */,
+				904203312A825EFF00E9DB64 /* DelaGothicOne.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -109,7 +111,7 @@
 				CBDBC9402A8119E7003F22E0 /* Assets.xcassets */,
 				CBDBC9422A8119E7003F22E0 /* LaunchScreen.storyboard */,
 				CBDBC9452A8119E7003F22E0 /* Info.plist */,
-				902E9D8A2A815E1F00E39655 /* Fonts */,
+				904203302A825EEE00E9DB64 /* Fonts */,
 				902E9D872A81509600E39655 /* Extension */,
 			);
 			path = Bomb;
@@ -193,7 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBDBC9442A8119E7003F22E0 /* LaunchScreen.storyboard in Resources */,
-				902E9D8C2A815E4800E39655 /* DelaGothicOne.ttf in Resources */,
+				904203322A825EFF00E9DB64 /* DelaGothicOne.ttf in Resources */,
 				CBDBC9412A8119E7003F22E0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
