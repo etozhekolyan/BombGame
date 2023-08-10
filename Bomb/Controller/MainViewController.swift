@@ -39,14 +39,20 @@ class MainViewController: UIViewController {
     }
     
     // функция старта игры
-    //   @objc func startButtonTapped() { }
+       @objc func startButtonTapped() {
+           navigationController?.pushViewController(GameViewController(), animated: true)
+       }
     
     // функция выбора категории
-    //   @objc func categoryButtonTapped() { }
+    @objc func categoryButtonTapped() {
+        navigationController?.pushViewController(CategoriesViewController(), animated: true)
+    }
     
     
     // функция перехода в настройки
-    //   @objc func rulesButtonTapped() { }
+       @objc func rulesButtonTapped() {
+           navigationController?.pushViewController(RulesViewController(), animated: true)
+       }
     
     
     
@@ -159,7 +165,7 @@ extension MainViewController {
    
         
         //  действие кнопки по нажатию
-        //button.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         
         return button
     }
@@ -174,7 +180,7 @@ extension MainViewController {
         button.contentMode = .center
         
         //  действие кнопки по нажатию
-        //button.addTarget(self, action: #selector(categorytButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
         
         return button
     }
@@ -192,7 +198,7 @@ extension MainViewController {
         
         
         //  действие кнопки по нажатию
-        //button.addTarget(self, action: #selector(rulesButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(rulesButtonTapped), for: .touchUpInside)
         
         return button
     }
