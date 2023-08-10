@@ -15,12 +15,22 @@ class GameViewController: UIViewController {
     private lazy var launchButton: UIButton = _launchButton
 
     override func viewDidLoad() {
+        self.title = "Игра"
+
         super.viewDidLoad()
         setBackground()
-        
         addSubviews()
         applyConstraints()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarTitle(for: self)
+        navigationController?.addBackButton()
+        navigationController?.addPauseButton()
+    }
+
     
     private func addSubviews() {
         view.addSubview(textLabel)
@@ -47,6 +57,7 @@ class GameViewController: UIViewController {
             make.height.equalTo(79)
         }
     }
+    
     
 }
 
