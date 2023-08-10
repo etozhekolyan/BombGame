@@ -11,6 +11,9 @@
 		902E9D892A8150AE00E39655 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E9D882A8150AE00E39655 /* Extension.swift */; };
 		904203322A825EFF00E9DB64 /* DelaGothicOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 904203312A825EFF00E9DB64 /* DelaGothicOne.ttf */; };
 		90DDB9AB2A8132E70080C5AF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 90DDB9AA2A8132E70080C5AF /* SnapKit */; };
+		CBD19FA72A8575B8001E4730 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD19FA42A8575B8001E4730 /* CategoryView.swift */; };
+		CBD19FA82A8575B8001E4730 /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD19FA52A8575B8001E4730 /* RulesView.swift */; };
+		CBD19FA92A8575B8001E4730 /* RuleViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD19FA62A8575B8001E4730 /* RuleViewItem.swift */; };
 		CBDBC9382A8119E6003F22E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDBC9372A8119E6003F22E0 /* AppDelegate.swift */; };
 		CBDBC93A2A8119E6003F22E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDBC9392A8119E6003F22E0 /* SceneDelegate.swift */; };
 		CBDBC93C2A8119E6003F22E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDBC93B2A8119E6003F22E0 /* MainViewController.swift */; };
@@ -25,7 +28,12 @@
 /* Begin PBXFileReference section */
 		902E9D852A81491800E39655 /* GameEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
 		902E9D882A8150AE00E39655 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		904203312A825EFF00E9DB64 /* DelaGothicOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DelaGothicOne.ttf; sourceTree = "<group>"; };
+
+		902E9D8B2A815E4800E39655 /* DelaGothicOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DelaGothicOne.ttf; sourceTree = "<group>"; };
+		CBD19FA42A8575B8001E4730 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		CBD19FA52A8575B8001E4730 /* RulesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesView.swift; sourceTree = "<group>"; };
+		CBD19FA62A8575B8001E4730 /* RuleViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleViewItem.swift; sourceTree = "<group>"; };
+
 		CBDBC9342A8119E6003F22E0 /* Bomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bomb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDBC9372A8119E6003F22E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBDBC9392A8119E6003F22E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +75,16 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		CBD19FA32A85759A001E4730 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CBD19FA42A8575B8001E4730 /* CategoryView.swift */,
+				CBD19FA52A8575B8001E4730 /* RulesView.swift */,
+				CBD19FA62A8575B8001E4730 /* RuleViewItem.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CBDBC92B2A8119E6003F22E0 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +104,7 @@
 		CBDBC9362A8119E6003F22E0 /* Bomb */ = {
 			isa = PBXGroup;
 			children = (
+				CBD19FA32A85759A001E4730 /* Views */,
 				CBDBC9372A8119E6003F22E0 /* AppDelegate.swift */,
 				CBDBC9392A8119E6003F22E0 /* SceneDelegate.swift */,
 				CBDBC94D2A811C0F003F22E0 /* Controller */,
@@ -191,7 +210,10 @@
 				902E9D892A8150AE00E39655 /* Extension.swift in Sources */,
 				CBDBC9502A811C56003F22E0 /* RulesViewController.swift in Sources */,
 				CBDBC94C2A811BE9003F22E0 /* GameViewController.swift in Sources */,
+				CBD19FA92A8575B8001E4730 /* RuleViewItem.swift in Sources */,
 				CBDBC9522A811CA9003F22E0 /* CategoriesViewController.swift in Sources */,
+				CBD19FA72A8575B8001E4730 /* CategoryView.swift in Sources */,
+				CBD19FA82A8575B8001E4730 /* RulesView.swift in Sources */,
 				CBDBC93C2A8119E6003F22E0 /* MainViewController.swift in Sources */,
 				CBDBC9382A8119E6003F22E0 /* AppDelegate.swift in Sources */,
 				CBDBC9542A811CF6003F22E0 /* NavigationController.swift in Sources */,
