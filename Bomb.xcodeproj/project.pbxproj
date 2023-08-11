@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F95F5422A867FA4005B9CAE /* DelaGothicOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F95F5412A867FA4005B9CAE /* DelaGothicOne.ttf */; };
+		4F95F54C2A86802D005B9CAE /* UserCategoryKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F95F5492A86802D005B9CAE /* UserCategoryKeeper.swift */; };
+		4F95F54D2A86802D005B9CAE /* FilterQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F95F54A2A86802D005B9CAE /* FilterQuestions.swift */; };
+		4F95F54E2A86802D005B9CAE /* CategoryQuestionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F95F54B2A86802D005B9CAE /* CategoryQuestionsModel.swift */; };
 		902E9D862A81491800E39655 /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E9D852A81491800E39655 /* GameEndViewController.swift */; };
 		902E9D892A8150AE00E39655 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E9D882A8150AE00E39655 /* Extension.swift */; };
 		904203322A825EFF00E9DB64 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		90D56B192A8650650056B9C2 /* DelaGothicOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90D56B182A8650650056B9C2 /* DelaGothicOne.ttf */; };
 		90DDB9AB2A8132E70080C5AF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 90DDB9AA2A8132E70080C5AF /* SnapKit */; };
 		CBD19FA72A8575B8001E4730 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD19FA42A8575B8001E4730 /* CategoryView.swift */; };
 		CBD19FA82A8575B8001E4730 /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD19FA52A8575B8001E4730 /* RulesView.swift */; };
@@ -27,9 +30,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F95F5412A867FA4005B9CAE /* DelaGothicOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DelaGothicOne.ttf; sourceTree = "<group>"; };
+		4F95F5492A86802D005B9CAE /* UserCategoryKeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCategoryKeeper.swift; sourceTree = "<group>"; };
+		4F95F54A2A86802D005B9CAE /* FilterQuestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterQuestions.swift; sourceTree = "<group>"; };
+		4F95F54B2A86802D005B9CAE /* CategoryQuestionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryQuestionsModel.swift; sourceTree = "<group>"; };
 		902E9D852A81491800E39655 /* GameEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
 		902E9D882A8150AE00E39655 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		90D56B182A8650650056B9C2 /* DelaGothicOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = DelaGothicOne.ttf; path = ../../../../Downloads/DelaGothicOne.ttf; sourceTree = "<group>"; };
 		CBD19FA42A8575B8001E4730 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CBD19FA52A8575B8001E4730 /* RulesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesView.swift; sourceTree = "<group>"; };
 		CBD19FA62A8575B8001E4730 /* RuleViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleViewItem.swift; sourceTree = "<group>"; };
@@ -58,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F95F5502A8680C0005B9CAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F95F54B2A86802D005B9CAE /* CategoryQuestionsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		902E9D872A81509600E39655 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,7 +83,7 @@
 		904203302A825EEE00E9DB64 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				90D56B182A8650650056B9C2 /* DelaGothicOne.ttf */,
+				4F95F5412A867FA4005B9CAE /* DelaGothicOne.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -103,6 +117,9 @@
 		CBDBC9362A8119E6003F22E0 /* Bomb */ = {
 			isa = PBXGroup;
 			children = (
+				4F95F5502A8680C0005B9CAE /* Model */,
+				4F95F54A2A86802D005B9CAE /* FilterQuestions.swift */,
+				4F95F5492A86802D005B9CAE /* UserCategoryKeeper.swift */,
 				CBD19FA32A85759A001E4730 /* Views */,
 				CBDBC9372A8119E6003F22E0 /* AppDelegate.swift */,
 				CBDBC9392A8119E6003F22E0 /* SceneDelegate.swift */,
@@ -196,7 +213,7 @@
 				CBDBC9442A8119E7003F22E0 /* LaunchScreen.storyboard in Resources */,
 				904203322A825EFF00E9DB64 /* (null) in Resources */,
 				CBDBC9412A8119E7003F22E0 /* Assets.xcassets in Resources */,
-				90D56B192A8650650056B9C2 /* DelaGothicOne.ttf in Resources */,
+				4F95F5422A867FA4005B9CAE /* DelaGothicOne.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,11 +225,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				902E9D892A8150AE00E39655 /* Extension.swift in Sources */,
+				4F95F54E2A86802D005B9CAE /* CategoryQuestionsModel.swift in Sources */,
 				CBDBC9502A811C56003F22E0 /* RulesViewController.swift in Sources */,
 				CBDBC94C2A811BE9003F22E0 /* GameViewController.swift in Sources */,
 				CBD19FA92A8575B8001E4730 /* RuleViewItem.swift in Sources */,
 				CBDBC9522A811CA9003F22E0 /* CategoriesViewController.swift in Sources */,
+				4F95F54D2A86802D005B9CAE /* FilterQuestions.swift in Sources */,
 				CBD19FA72A8575B8001E4730 /* CategoryView.swift in Sources */,
+				4F95F54C2A86802D005B9CAE /* UserCategoryKeeper.swift in Sources */,
 				CBD19FA82A8575B8001E4730 /* RulesView.swift in Sources */,
 				CBDBC93C2A8119E6003F22E0 /* MainViewController.swift in Sources */,
 				CBDBC9382A8119E6003F22E0 /* AppDelegate.swift in Sources */,

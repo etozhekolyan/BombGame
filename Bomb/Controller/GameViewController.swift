@@ -12,6 +12,8 @@ class GameViewController: UIViewController {
     private lazy var textLabel: UILabel = _textLabel
     private lazy var imageView: UIImageView = _imageView
     private lazy var launchButton: UIButton = _launchButton
+    private let questionStorage = QuestionStorage()
+    private var filterQuestions: FilterQuastions?
     
     weak var timer: Timer?
     var secondsRemaining = 3
@@ -25,6 +27,11 @@ class GameViewController: UIViewController {
         setBackground()
         addSubviews()
         applyConstraints()
+    }
+    
+    override func loadView() {
+        super.loadView()
+        filterQuestions = FilterQuastions(questions: questionStorage)
     }
     
     override func viewWillAppear(_ animated: Bool) {
