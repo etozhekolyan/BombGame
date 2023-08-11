@@ -38,7 +38,6 @@ class GameViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarTitle(for: self)
         navigationController?.addBackButton()
-        navigationController?.addPauseButton()
     }
     
     func updateLabel(with text: String) {
@@ -66,6 +65,7 @@ class GameViewController: UIViewController {
         isGameStarted = true
         launchButton.isHidden = true
         textLabel.text = "Здесь типа какое-то задание"
+        navigationController?.addPauseButton()
         startTimer()
     }
 
@@ -107,26 +107,27 @@ extension GameViewController {
     
     var _textLabel: UILabel {
         let label = UILabel()
-        label.text = "Нажмите\n “Запустить” чтобы начать игру"
+        label.text = "Нажмите “Запустить” \n чтобы начать игру"
         label.numberOfLines = 0
-        label.textColor = UIColor(named: "textColor")
+        label.textColor = UIColor().getTextColor()
         label.textAlignment = .center
-        label.font = UIFont(name: "Dela Gothic One", size: 28)
+        label.font = UIFont(name: "Dela Gothic One", size: 25)
         return label
     }
     
     var _imageView: UIImageView {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "bomb")
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }
     
     var _launchButton: UIButton {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor().getButtonColor()
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 24)
         button.setTitle("Запустить", for: .normal)
-        button.tintColor = UIColor(named: "buttonTextColor")
+        button.tintColor = UIColor().getButtonTextColor()
         button.layer.cornerRadius = 40
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(launchButtonTapped), for: .touchUpInside)

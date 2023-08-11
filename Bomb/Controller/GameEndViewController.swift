@@ -110,7 +110,7 @@ private extension GameEndViewController {
         let label = UILabel()
         label.text = "В следующем раунде после каждого ответа хлопать в ладоши"
         label.numberOfLines = 0
-        label.textColor = UIColor(named: "textColor")
+        label.textColor = UIColor().getTextColor()
         label.textAlignment = .center
         label.font = UIFont(name: "Dela Gothic One", size: 20)
         return label
@@ -118,9 +118,9 @@ private extension GameEndViewController {
     
     var _anotherTaskButton: UIButton {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("Другое\nЗадание", for: .normal)
-        button.tintColor = UIColor(named: "buttonTextColor")
+        button.tintColor = UIColor().getButtonTextColor()
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 24)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center
@@ -128,7 +128,6 @@ private extension GameEndViewController {
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(anotherTaskButtonTapped), for: .touchUpInside)
         button.drawShadow()
-        button.drawBorder(color: .black)
         return button
     }
     
@@ -137,14 +136,14 @@ private extension GameEndViewController {
         button.setTitle("Начать\nЗаново", for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor().getButtonColor()
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 24)
-        button.tintColor = UIColor(named: "buttonTextColor")
+        button.tintColor = UIColor().getButtonTextColor()
         button.layer.cornerRadius = 40
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(startOverButtonTapped), for: .touchUpInside)
         button.drawShadow()
-        button.drawBorder(color: .black)
+        
         return button
     }
 }

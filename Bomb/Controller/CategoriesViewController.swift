@@ -11,10 +11,11 @@ class CategoriesViewController: UIViewController {
     
     private lazy var firstButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("О Разном", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 16)
-        button.setTitleColor(UIColor(named: "buttonTextColor"), for: .normal)
+        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 15)
+        button.contentVerticalAlignment = .bottom
+        button.setTitleColor(UIColor().getButtonTextColor(), for: .normal)
         button.drawShadow()
         button.layer.cornerRadius = 40
         return button
@@ -22,10 +23,11 @@ class CategoriesViewController: UIViewController {
     
     private lazy var secondButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("Спорт и Хобби", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 16)
-        button.setTitleColor(UIColor(named: "buttonTextColor"), for: .normal)
+        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 15)
+        button.contentVerticalAlignment = .bottom
+        button.setTitleColor(UIColor().getButtonTextColor(), for: .normal)
         button.drawShadow()
         button.layer.cornerRadius = 40
         return button
@@ -33,10 +35,11 @@ class CategoriesViewController: UIViewController {
     
     private lazy var thirdButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("Про Жизнь", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 16)
-        button.setTitleColor(UIColor(named: "buttonTextColor"), for: .normal)
+        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 15)
+        button.contentVerticalAlignment = .bottom
+        button.setTitleColor(UIColor().getButtonTextColor(), for: .normal)
         button.drawShadow()
         button.layer.cornerRadius = 40
         return button
@@ -44,10 +47,11 @@ class CategoriesViewController: UIViewController {
     
     private lazy var fourthButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("Знаменитости", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 16)
-        button.setTitleColor(UIColor(named: "buttonTextColor"), for: .normal)
+        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 15)
+        button.contentVerticalAlignment = .bottom
+        button.setTitleColor(UIColor().getButtonTextColor(), for: .normal)
         button.drawShadow()
         button.layer.cornerRadius = 40
         return button
@@ -55,10 +59,11 @@ class CategoriesViewController: UIViewController {
     
     private lazy var fifthButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("Искусство и Кино", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 16)
-        button.setTitleColor(UIColor(named: "buttonTextColor"), for: .normal)
+        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 14)
+        button.contentVerticalAlignment = .bottom
+        button.setTitleColor(UIColor().getButtonTextColor(), for: .normal)
         button.drawShadow()
         button.layer.cornerRadius = 40
         return button
@@ -66,10 +71,11 @@ class CategoriesViewController: UIViewController {
     
     private lazy var sixthButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("Природа", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 16)
-        button.setTitleColor(UIColor(named: "buttonTextColor"), for: .normal)
+        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 15)
+        button.contentVerticalAlignment = .bottom
+        button.setTitleColor(UIColor().getButtonTextColor(), for: .normal)
         button.drawShadow()
         button.layer.cornerRadius = 40
         return button
@@ -138,8 +144,8 @@ class CategoriesViewController: UIViewController {
         verStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             verStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 52),
-            verStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -3),
-            verStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 3),
+            verStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            verStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             verStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -99)
         ])
     }
