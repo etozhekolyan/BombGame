@@ -31,7 +31,7 @@ class CategoryView: UIView {
     }
     
     private func configureCategoryIcon(_ iconName: String, _ categoryName: String, x: Int, y: Int) -> UIView {
-        var view = getIconView(x: x, y: y)
+        let view = getIconView(x: x, y: y)
         view.addSubview(getCheckboxImage())
         view.addSubview(getCategoryIcon(iconName))
         view.addSubview(getCategotyNameLabel(categoryName))
@@ -39,7 +39,7 @@ class CategoryView: UIView {
     }
     
     private func getIconView(x: Int, y: Int) -> UIView {
-        var view = UIView(frame: CGRect(x: x, y: y, width: 145, height: 145))
+        let view = UIView(frame: CGRect(x: x, y: y, width: 145, height: 145))
         view.backgroundColor = UIColor(red: 126 / 255,
                                        green: 52 / 255,
                                        blue: 163 / 255,
