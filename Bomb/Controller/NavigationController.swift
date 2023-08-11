@@ -7,6 +7,7 @@
 import UIKit
 
 extension UINavigationController {
+    
     func setNavigationBarTitle(for viewController: UIViewController) {
         let barTitle = UILabel()
         barTitle.text = viewController.title
@@ -33,8 +34,12 @@ extension UINavigationController {
     
     func addPauseButton() {
         let pauseButton = UIButton(type: .custom)
+        
         let pauseImage = UIImage(named: "PauseButton")?.withRenderingMode(.alwaysTemplate)
+        let playImage = UIImage(named: "PlayButton")?.withRenderingMode(.alwaysTemplate)
         pauseButton.setImage(pauseImage, for: .normal)
+        pauseButton.setImage(playImage, for: .selected)
+        
         pauseButton.imageView?.contentMode = .scaleAspectFit
         pauseButton.tintColor = UIColor().getButtonColor()
 
@@ -51,7 +56,18 @@ extension UINavigationController {
         setNavigationBarTitle(for: UIViewController())
     }
     
-    @objc func pauseButtonTapped() {
-        // функционал кнопки (В будущем)
+    @objc func pauseButtonTapped(_ sender: UIButton) {
+        if let viewController = visibleViewController as? GameViewController {
+            guard viewController.isGameStarted else { return }
+            
+            if sender.isSelected {
+                viewController.updateLabel(with: "Здесь типа то же самое задание")
+                viewController.startTimer()
+            } else {
+                viewController.updateLabel(with: "Пауза")
+                viewController.pauseTimer()
+            }
+            sender.isSelected.toggle()
+        }
     }
 }

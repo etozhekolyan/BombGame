@@ -44,11 +44,12 @@ extension UIView {
         self.layer.masksToBounds = false
         self.layer.shadowRadius = 2
         self.layer.shadowOpacity = 0.5
-
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.borderWidth = 1.0
     }
     
+    func drawBorder(color: UIColor) {
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = 1.0
+    }
 }
 
 extension UIColor {

@@ -8,7 +8,13 @@
 import UIKit
 import SnapKit
 
+protocol GameEndViewControllerDelegate: AnyObject {
+    func startOverGame(_ controller: GameEndViewController)
+}
+
 class GameEndViewController: UIViewController {
+    
+    weak var delegate: GameEndViewControllerDelegate?
 
     private lazy var descriptionLabel: UILabel = _descriptionLabel
     private lazy var taskLabel: UILabel = _taskLabel
@@ -19,11 +25,18 @@ class GameEndViewController: UIViewController {
     private lazy var startOverButton: UIButton = _startOverButton
 
     override func viewDidLoad() {
+        self.title = "Игра"
         super.viewDidLoad()
-        setBackground()
         
+        setBackground()
         addSubviews()
         applyConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarTitle(for: self)
+        navigationController?.addBackButton()
     }
     
     private func addSubviews() {
@@ -53,7 +66,7 @@ class GameEndViewController: UIViewController {
         }
         
         anotherTaskButton.snp.makeConstraints { make in
-            make.top.equalTo(taskLabel.snp.bottom).offset(20)
+            make.bottom.equalTo(startOverButton.snp.top).offset(-15)
             make.leading.trailing.equalToSuperview().inset(50)
             make.height.equalTo(79)
         }
@@ -63,6 +76,15 @@ class GameEndViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(50)
             make.height.equalTo(79)
         }
+    }
+    
+    @objc func anotherTaskButtonTapped() {
+        taskLabel.text = "Какое-то другое задание, надо будет приконнектить сюда"
+    }
+    
+    @objc func startOverButtonTapped() {
+        navigationController?.popViewController(animated: true)
+        delegate?.startOverGame(self)
     }
 }
 
@@ -104,7 +126,9 @@ private extension GameEndViewController {
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 40
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(anotherTaskButtonTapped), for: .touchUpInside)
         button.drawShadow()
+        button.drawBorder(color: .black)
         return button
     }
     
@@ -118,7 +142,9 @@ private extension GameEndViewController {
         button.tintColor = UIColor(named: "buttonTextColor")
         button.layer.cornerRadius = 40
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(startOverButtonTapped), for: .touchUpInside)
         button.drawShadow()
+        button.drawBorder(color: .black)
         return button
     }
 }
