@@ -67,3 +67,17 @@ extension UIColor {
         return UIColor(red: 228/255, green: 48/255, blue: 41/255, alpha: 1)
     }
 }
+
+extension UIButton {
+    private struct AssociatedKeys {
+        static var category = "category"
+    }
+    var category: Category? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.category) as? Category
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.category, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+}

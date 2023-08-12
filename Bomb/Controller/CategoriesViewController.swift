@@ -11,6 +11,14 @@ class CategoriesViewController: UIViewController {
     
     private lazy var firstButton: UIButton = {
         let button = UIButton()
+        let image = UIImageView()
+        image.image = UIImage(named: "image 1")
+        button.addSubview(image)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            image.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: button.centerYAnchor)
+        ])
         button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("О Разном", for: .normal)
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 15)
@@ -23,6 +31,14 @@ class CategoriesViewController: UIViewController {
     
     private lazy var secondButton: UIButton = {
         let button = UIButton()
+        let image = UIImageView()
+        image.image = UIImage(named: "image 2")
+        button.addSubview(image)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            image.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: button.centerYAnchor)
+        ])
         button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("Спорт и Хобби", for: .normal)
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 15)
@@ -35,6 +51,14 @@ class CategoriesViewController: UIViewController {
     
     private lazy var thirdButton: UIButton = {
         let button = UIButton()
+        let image = UIImageView()
+        image.image = UIImage(named: "image 3")
+        button.addSubview(image)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            image.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: button.centerYAnchor)
+        ])
         button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("Про Жизнь", for: .normal)
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 15)
@@ -47,6 +71,14 @@ class CategoriesViewController: UIViewController {
     
     private lazy var fourthButton: UIButton = {
         let button = UIButton()
+        let image = UIImageView()
+        image.image = UIImage(named: "image 4")
+        button.addSubview(image)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            image.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: button.centerYAnchor)
+        ])
         button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("Знаменитости", for: .normal)
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 15)
@@ -59,6 +91,14 @@ class CategoriesViewController: UIViewController {
     
     private lazy var fifthButton: UIButton = {
         let button = UIButton()
+        let image = UIImageView()
+        image.image = UIImage(named: "image 5")
+        button.addSubview(image)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            image.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: button.centerYAnchor)
+        ])
         button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("Искусство и Кино", for: .normal)
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 14)
@@ -71,6 +111,14 @@ class CategoriesViewController: UIViewController {
     
     private lazy var sixthButton: UIButton = {
         let button = UIButton()
+        let image = UIImageView()
+        image.image = UIImage(named: "image 6")
+        button.addSubview(image)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            image.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: button.centerYAnchor)
+        ])
         button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("Природа", for: .normal)
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 15)
