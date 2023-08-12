@@ -27,6 +27,8 @@ class GameViewController: UIViewController {
         setBackground()
         addSubviews()
         applyConstraints()
+        
+        filterQuestions?.filter()
     }
     
     override func loadView() {
@@ -62,11 +64,12 @@ class GameViewController: UIViewController {
     }
     
     @objc func launchButtonTapped() {
-        isGameStarted = true
-        launchButton.isHidden = true
-        textLabel.text = "Здесь типа какое-то задание"
-        navigationController?.addPauseButton()
-        startTimer()
+//        isGameStarted = true
+//        launchButton.isHidden = true
+//        textLabel.text = "Здесь типа какое-то задание"
+//        navigationController?.addPauseButton()
+//        startTimer()
+        print(filterQuestions?.getFilteredQuestions())
     }
 
     private func addSubviews() {

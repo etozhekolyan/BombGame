@@ -71,7 +71,18 @@ extension UIColor {
 extension UIButton {
     private struct AssociatedKeys {
         static var category = "category"
+        static var isPressed = "buttonPressed"
     }
+    
+    var isPressed: Bool {
+            get {
+                return objc_getAssociatedObject(self, &AssociatedKeys.isPressed) as? Bool ?? false
+            }
+            set {
+                objc_setAssociatedObject(self, &AssociatedKeys.isPressed, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            }
+        }
+
     var category: Category? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.category) as? Category
