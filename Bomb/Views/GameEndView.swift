@@ -141,7 +141,6 @@ extension GameEndView {
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(anotherTaskButtonTapped), for: .touchUpInside)
         button.drawShadow()
-        button.drawBorder(color: .black)
         return button
     }
     
@@ -157,7 +156,6 @@ extension GameEndView {
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(startOverButtonTapped), for: .touchUpInside)
         button.drawShadow()
-        button.drawBorder(color: .black)
         return button
     }
 }

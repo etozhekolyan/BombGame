@@ -32,7 +32,7 @@ class GameViewController: UIViewController {
     
     let duration: Duration = .ten
     var state: State?
-    let task: String = "Здесь типа какое-то задание"
+    lazy var task: String = ""
   
     private let questionStorage = QuestionStorage()
     private var filterQuestions: FilterQuastions?
@@ -58,18 +58,13 @@ class GameViewController: UIViewController {
         filterQuestions?.filter()
         navigationController?.setNavigationBarTitle(for: self)
         navigationController?.addBackButton()
+        print()
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//       super.viewDidAppear(animated)
-//       setBackground()
-//   }
     
     override func loadView() {
         super.loadView()
         filterQuestions = FilterQuastions(questions: questionStorage)
         self.view = gameView
-        
     }
     
     func startTimer() {
@@ -129,6 +124,11 @@ class GameViewController: UIViewController {
         gameView.updateLabel(with: text)
     }
     
+    func randomizeLabel() {
+        task = filterQuestions!.getRandomQuestion()
+        updateLabel(with: task)
+    }
+    
     func playTimerBomb(for duration: Duration) {
         switch duration {
         case .ten:
@@ -141,10 +141,10 @@ class GameViewController: UIViewController {
     }
     
     func buttonTapped() {
+        randomizeLabel()
         gameView.playAnimation(name: "bomb1", loopMode: .loop)
         playTimerBomb(for: duration)
         startTimer()
-        gameView.updateLabel(with: task)
         navigationController?.addPauseButton()
     }
       
