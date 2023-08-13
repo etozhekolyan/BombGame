@@ -8,7 +8,6 @@ Swift Marathon 8.0 Challenge | **Team №9**
   
 ### About
 + Swift | UIKit | Foundation
-+ Storyboard | XIB(NIB)
 
 >Bomb — is a fun game for friends to have a good time answering questions until the bomb explodes.
 
