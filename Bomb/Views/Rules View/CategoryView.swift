@@ -21,7 +21,7 @@ class CategoryView: UIView {
         self.heightAnchor.constraint(equalToConstant: 320).isActive = true
         let firsticon = configureCategoryIcon("image 6", "Природа", x: 40, y: 0)
         let secondicon = configureCategoryIcon("image 5", "Исскуство и\n кино", x: 192, y: 0)
-        let thirdicon = configureCategoryIcon("", "Разное", x: 40, y: 165)
+        let thirdicon = configureCategoryIcon("image 1", "Разное", x: 40, y: 165)
         let fourth = configureCategoryIcon("image 2", "Спорт и\n Хобби", x: 192, y: 165)
         self.addSubview(firsticon)
         self.addSubview(secondicon)
@@ -32,7 +32,6 @@ class CategoryView: UIView {
     
     private func configureCategoryIcon(_ iconName: String, _ categoryName: String, x: Int, y: Int) -> UIView {
         let view = getIconView(x: x, y: y)
-        view.addSubview(getCheckboxImage())
         view.addSubview(getCategoryIcon(iconName))
         view.addSubview(getCategotyNameLabel(categoryName))
         return view
@@ -40,25 +39,17 @@ class CategoryView: UIView {
     
     private func getIconView(x: Int, y: Int) -> UIView {
         let view = UIView(frame: CGRect(x: x, y: y, width: 145, height: 145))
-        view.backgroundColor = UIColor(red: 126 / 255,
-                                       green: 52 / 255,
-                                       blue: 163 / 255,
-                                       alpha: 1.0)
-        view.layer.cornerRadius = 50
-        view.layer.borderWidth = 1
+        view.backgroundColor = UIColor().getButtonColor()
+        view.layer.cornerRadius = 35
+        view.drawShadow()
         
         return view
     }
     
-    private func getCheckboxImage() -> UIImageView {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 42, height: 42))
-        imageView.contentMode = .bottomRight
-        imageView.image = UIImage(named: "checkCircle")
-        return imageView
-    }
     
     private func getCategoryIcon(_ imageName: String) -> UIImageView {
-        let imageView = UIImageView(frame: CGRect(x: 40, y: 19, width: 79, height: 70)) // 89 80
+        let imageView = UIImageView(frame: CGRect(x: 30, y: 19, width: 90, height: 90)) // 89 80
+        imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: imageName)
         return imageView
     }
@@ -68,7 +59,7 @@ class CategoryView: UIView {
         label.text = name
         label.font = UIFont(name: "Dela Gothic One", size: 16)
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = UIColor().getButtonTextColor()
         label.numberOfLines = 0
         return label
     }

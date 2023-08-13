@@ -24,8 +24,6 @@ class MainViewController: UIViewController {
         setBackground()
         addSubviews()
         setConstraints()
-        
-      //  debugPrint(UIFont.familyNames)
     }
     
     
@@ -35,8 +33,7 @@ class MainViewController: UIViewController {
         view.addSubview(bombImageView)
         view.addSubview(startGameButton)
         view.addSubview(selectCategoryButton)
-        view.addSubview(rulesButton)
-//        
+        view.addSubview(rulesButton)     
     }
     
     // функция старта игры

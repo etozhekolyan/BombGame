@@ -20,6 +20,20 @@ extension UIViewController {
     }
 }
 
+extension UIView {
+    
+    func setBackground() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.bounds
+        gradientLayer.colors = [
+            UIColor.systemOrange.cgColor,
+            UIColor(red: 1, green: 187/255, blue: 48/255, alpha: 1).cgColor,
+            ]
+        self.layer.addSublayer(gradientLayer)
+    }
+}
+
+
 extension UILabel {
 
     func addSpaceBetweenLines(spacingValue: CGFloat) {
@@ -65,5 +79,30 @@ extension UIColor {
     
     func getButtonTextColor() -> UIColor {
         return UIColor(red: 228/255, green: 48/255, blue: 41/255, alpha: 1)
+    }
+}
+
+extension UIButton {
+    private struct AssociatedKeys {
+        static var category = "category"
+        static var isPressed = "buttonPressed"
+    }
+    
+    var isPressed: Bool {
+            get {
+                return objc_getAssociatedObject(self, &AssociatedKeys.isPressed) as? Bool ?? false
+            }
+            set {
+                objc_setAssociatedObject(self, &AssociatedKeys.isPressed, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            }
+        }
+
+    var category: Category? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.category) as? Category
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.category, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
     }
 }

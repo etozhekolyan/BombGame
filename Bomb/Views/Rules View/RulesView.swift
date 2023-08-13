@@ -9,6 +9,7 @@ import UIKit
 
 class RulesView: UIView {
     
+    private let backgroundView = UIView()
     private let categoryView = CategoryView()
     private let contentView = UIView()
     private let rules = [
@@ -20,17 +21,22 @@ class RulesView: UIView {
         Rule(numberOfRule: "6", ruleText: "Проигравшим считается тот, в \n чьих руках взорвалась бомба."),
         Rule(numberOfRule: "7", ruleText: "Если в настройках выбран \n режим игры “С Заданиями”, то \n проигравший выполняет \n задание.")
     ]
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         addToHierarchy()
         setupLayouts()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupBackground()
+    }
+
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.bounces = true
@@ -39,7 +45,7 @@ class RulesView: UIView {
         scrollView.isScrollEnabled = true
         return scrollView
     }()
-    
+
     let stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -47,28 +53,24 @@ class RulesView: UIView {
         stack.spacing = 0
         return stack
     }()
-    
+
     private let backgroundImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "background")
         return imageView
     }()
-    
-    
+
     private let anotherHeadLabel: UILabel = {
        let label = UILabel()
         label.heightAnchor.constraint(equalToConstant: 96).isActive = true
         label.textAlignment = .center
         label.contentMode = .bottom
         label.font = UIFont(name: "Dela Gothic One", size: 24)
-        label.textColor = UIColor(red: 130 / 255,
-                                  green: 52 / 255,
-                                  blue: 208 / 255,
-                                  alpha: 1.0)
+        label.textColor = .red
         label.text = "Категории"
         return label
     }()
-    
+
     private let exampleButtonView: UIView = {
         let view = UIView()
         let label = UILabel(frame: CGRect(x: -4, y: 7, width: 103, height: 13))
@@ -89,7 +91,7 @@ class RulesView: UIView {
         view.addSubview(label)
         return view
     }()
-    
+
     private let categoryDescriptionLabel: UILabel = {
         let label = UILabel()
         label.heightAnchor.constraint(equalToConstant: 150).isActive = true
@@ -99,7 +101,7 @@ class RulesView: UIView {
         label.numberOfLines = 0
         return label
     }()
-    
+
     private let anotherCategoryDescriptionLabel: UILabel = {
         let label = UILabel()
         label.heightAnchor.constraint(equalToConstant: 150).isActive = true
@@ -110,9 +112,18 @@ class RulesView: UIView {
         return label
     }()
 
-    
+    private func setupBackground() {
+        let gradient = CAGradientLayer()
+        gradient.frame = backgroundView.bounds
+        gradient.colors = [
+            UIColor.systemOrange.cgColor,
+            UIColor(red: 1, green: 187/255, blue: 48/255, alpha: 1).cgColor,
+            ]
+        backgroundView.layer.addSublayer(gradient)
+    }
+
     private func addToHierarchy() {
-        self.addSubview(backgroundImage)
+        self.addSubview(backgroundView)
         self.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(stackView)
@@ -128,14 +139,14 @@ class RulesView: UIView {
         stackView.addArrangedSubview(categoryDescriptionLabel)
         stackView.addArrangedSubview(categoryView)
     }
-    
+
     private func setupLayouts() {
-        layoutBackgroundImage()
+        layoutBackgroundView()
         layoutScrollView()
         layoutContentView()
         layoutStackView()
     }
-    
+
     private func layoutContentView() {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
@@ -144,7 +155,7 @@ class RulesView: UIView {
         contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
-    
+
     private func layoutScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
@@ -153,7 +164,7 @@ class RulesView: UIView {
         scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
-    
+
     private func layoutBackgroundImage() {
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         backgroundImage.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
@@ -162,7 +173,7 @@ class RulesView: UIView {
         backgroundImage.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         backgroundImage.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
-    
+
     private func layoutStackView() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
@@ -171,6 +182,16 @@ class RulesView: UIView {
         stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
+
+    private func layoutBackgroundView() {
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        backgroundView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+    }
+
 }
 
 
