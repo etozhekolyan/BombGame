@@ -11,6 +11,17 @@
 		902E9D892A8150AE00E39655 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E9D882A8150AE00E39655 /* Extension.swift */; };
 		904203322A825EFF00E9DB64 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		90D56B192A8650650056B9C2 /* DelaGothicOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90D56B182A8650650056B9C2 /* DelaGothicOne.ttf */; };
+		90D56B282A876C940056B9C2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 90D56B272A876C940056B9C2 /* Lottie */; };
+		90D56B3D2A87A2970056B9C2 /* bomb1.json in Resources */ = {isa = PBXBuildFile; fileRef = 90D56B3B2A87A2970056B9C2 /* bomb1.json */; };
+		90D56B3E2A87A2970056B9C2 /* bomb2.json in Resources */ = {isa = PBXBuildFile; fileRef = 90D56B3C2A87A2970056B9C2 /* bomb2.json */; };
+		90D56B432A881C400056B9C2 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D56B422A881C400056B9C2 /* GameModel.swift */; };
+		90D56B452A881D150056B9C2 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D56B442A881D150056B9C2 /* GameView.swift */; };
+		90D56B492A8896D20056B9C2 /* GameEndModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D56B482A8896D20056B9C2 /* GameEndModel.swift */; };
+		90D56B4B2A8898340056B9C2 /* GameEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D56B4A2A8898340056B9C2 /* GameEndView.swift */; };
+		90D56B4F2A88A6240056B9C2 /* BombExplosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 90D56B4C2A88A6240056B9C2 /* BombExplosion.mp3 */; };
+		90D56B502A88A6240056B9C2 /* TimerBombSeconds_10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 90D56B4D2A88A6240056B9C2 /* TimerBombSeconds_10.mp3 */; };
+		90D56B512A88A6240056B9C2 /* TimerBombSeconds_20.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 90D56B4E2A88A6240056B9C2 /* TimerBombSeconds_20.mp3 */; };
+		90D56B532A88A62A0056B9C2 /* TimerBombSeconds_30.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 90D56B522A88A62A0056B9C2 /* TimerBombSeconds_30.mp3 */; };
 		90DDB9AB2A8132E70080C5AF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 90DDB9AA2A8132E70080C5AF /* SnapKit */; };
 		CBD19FA72A8575B8001E4730 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD19FA42A8575B8001E4730 /* CategoryView.swift */; };
 		CBD19FA82A8575B8001E4730 /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD19FA52A8575B8001E4730 /* RulesView.swift */; };
@@ -30,6 +41,16 @@
 		902E9D852A81491800E39655 /* GameEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
 		902E9D882A8150AE00E39655 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		90D56B182A8650650056B9C2 /* DelaGothicOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = DelaGothicOne.ttf; path = ../../../../Downloads/DelaGothicOne.ttf; sourceTree = "<group>"; };
+		90D56B3B2A87A2970056B9C2 /* bomb1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bomb1.json; sourceTree = "<group>"; };
+		90D56B3C2A87A2970056B9C2 /* bomb2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bomb2.json; sourceTree = "<group>"; };
+		90D56B422A881C400056B9C2 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		90D56B442A881D150056B9C2 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		90D56B482A8896D20056B9C2 /* GameEndModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndModel.swift; sourceTree = "<group>"; };
+		90D56B4A2A8898340056B9C2 /* GameEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndView.swift; sourceTree = "<group>"; };
+		90D56B4C2A88A6240056B9C2 /* BombExplosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BombExplosion.mp3; sourceTree = "<group>"; };
+		90D56B4D2A88A6240056B9C2 /* TimerBombSeconds_10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TimerBombSeconds_10.mp3; sourceTree = "<group>"; };
+		90D56B4E2A88A6240056B9C2 /* TimerBombSeconds_20.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TimerBombSeconds_20.mp3; sourceTree = "<group>"; };
+		90D56B522A88A62A0056B9C2 /* TimerBombSeconds_30.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TimerBombSeconds_30.mp3; sourceTree = "<group>"; };
 		CBD19FA42A8575B8001E4730 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CBD19FA52A8575B8001E4730 /* RulesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesView.swift; sourceTree = "<group>"; };
 		CBD19FA62A8575B8001E4730 /* RuleViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleViewItem.swift; sourceTree = "<group>"; };
@@ -52,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90DDB9AB2A8132E70080C5AF /* SnapKit in Frameworks */,
+				90D56B282A876C940056B9C2 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +96,43 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		90D56B412A881C000056B9C2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90D56B422A881C400056B9C2 /* GameModel.swift */,
+				90D56B482A8896D20056B9C2 /* GameEndModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		90D56B462A8832780056B9C2 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				90D56B3B2A87A2970056B9C2 /* bomb1.json */,
+				90D56B3C2A87A2970056B9C2 /* bomb2.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		90D56B472A8832A20056B9C2 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				90D56B522A88A62A0056B9C2 /* TimerBombSeconds_30.mp3 */,
+				90D56B4E2A88A6240056B9C2 /* TimerBombSeconds_20.mp3 */,
+				90D56B4D2A88A6240056B9C2 /* TimerBombSeconds_10.mp3 */,
+				90D56B4C2A88A6240056B9C2 /* BombExplosion.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		CBD19FA32A85759A001E4730 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CBD19FA42A8575B8001E4730 /* CategoryView.swift */,
 				CBD19FA52A8575B8001E4730 /* RulesView.swift */,
 				CBD19FA62A8575B8001E4730 /* RuleViewItem.swift */,
+				90D56B442A881D150056B9C2 /* GameView.swift */,
+				90D56B4A2A8898340056B9C2 /* GameEndView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -103,13 +156,16 @@
 		CBDBC9362A8119E6003F22E0 /* Bomb */ = {
 			isa = PBXGroup;
 			children = (
-				CBD19FA32A85759A001E4730 /* Views */,
 				CBDBC9372A8119E6003F22E0 /* AppDelegate.swift */,
 				CBDBC9392A8119E6003F22E0 /* SceneDelegate.swift */,
+				90D56B412A881C000056B9C2 /* Model */,
+				CBD19FA32A85759A001E4730 /* Views */,
 				CBDBC94D2A811C0F003F22E0 /* Controller */,
 				CBDBC9402A8119E7003F22E0 /* Assets.xcassets */,
 				CBDBC9422A8119E7003F22E0 /* LaunchScreen.storyboard */,
 				CBDBC9452A8119E7003F22E0 /* Info.plist */,
+				90D56B472A8832A20056B9C2 /* Sounds */,
+				90D56B462A8832780056B9C2 /* Animations */,
 				904203302A825EEE00E9DB64 /* Fonts */,
 				902E9D872A81509600E39655 /* Extension */,
 			);
@@ -147,6 +203,7 @@
 			name = Bomb;
 			packageProductDependencies = (
 				90DDB9AA2A8132E70080C5AF /* SnapKit */,
+				90D56B272A876C940056B9C2 /* Lottie */,
 			);
 			productName = Bomb;
 			productReference = CBDBC9342A8119E6003F22E0 /* Bomb.app */;
@@ -178,6 +235,7 @@
 			mainGroup = CBDBC92B2A8119E6003F22E0;
 			packageReferences = (
 				90DDB9A92A8132E70080C5AF /* XCRemoteSwiftPackageReference "SnapKit" */,
+				90D56B262A876C940056B9C2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = CBDBC9352A8119E6003F22E0 /* Products */;
 			projectDirPath = "";
@@ -195,7 +253,13 @@
 			files = (
 				CBDBC9442A8119E7003F22E0 /* LaunchScreen.storyboard in Resources */,
 				904203322A825EFF00E9DB64 /* (null) in Resources */,
+				90D56B3D2A87A2970056B9C2 /* bomb1.json in Resources */,
+				90D56B3E2A87A2970056B9C2 /* bomb2.json in Resources */,
 				CBDBC9412A8119E7003F22E0 /* Assets.xcassets in Resources */,
+				90D56B532A88A62A0056B9C2 /* TimerBombSeconds_30.mp3 in Resources */,
+				90D56B512A88A6240056B9C2 /* TimerBombSeconds_20.mp3 in Resources */,
+				90D56B502A88A6240056B9C2 /* TimerBombSeconds_10.mp3 in Resources */,
+				90D56B4F2A88A6240056B9C2 /* BombExplosion.mp3 in Resources */,
 				90D56B192A8650650056B9C2 /* DelaGothicOne.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,11 +277,15 @@
 				CBD19FA92A8575B8001E4730 /* RuleViewItem.swift in Sources */,
 				CBDBC9522A811CA9003F22E0 /* CategoriesViewController.swift in Sources */,
 				CBD19FA72A8575B8001E4730 /* CategoryView.swift in Sources */,
+				90D56B452A881D150056B9C2 /* GameView.swift in Sources */,
 				CBD19FA82A8575B8001E4730 /* RulesView.swift in Sources */,
+				90D56B4B2A8898340056B9C2 /* GameEndView.swift in Sources */,
 				CBDBC93C2A8119E6003F22E0 /* MainViewController.swift in Sources */,
 				CBDBC9382A8119E6003F22E0 /* AppDelegate.swift in Sources */,
 				CBDBC9542A811CF6003F22E0 /* NavigationController.swift in Sources */,
 				902E9D862A81491800E39655 /* GameEndViewController.swift in Sources */,
+				90D56B432A881C400056B9C2 /* GameModel.swift in Sources */,
+				90D56B492A8896D20056B9C2 /* GameEndModel.swift in Sources */,
 				CBDBC93A2A8119E6003F22E0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +500,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		90D56B262A876C940056B9C2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		90DDB9A92A8132E70080C5AF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -443,6 +519,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		90D56B272A876C940056B9C2 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90D56B262A876C940056B9C2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		90DDB9AA2A8132E70080C5AF /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 90DDB9A92A8132E70080C5AF /* XCRemoteSwiftPackageReference "SnapKit" */;
