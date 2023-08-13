@@ -51,8 +51,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         self.title = "Игра"
         super.viewDidLoad()
-        setBackground()
-
+        
         gameView.delegate = self
         gameView.updateLabel(with: model.text)
         
@@ -61,10 +60,16 @@ class GameViewController: UIViewController {
         navigationController?.addBackButton()
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//       super.viewDidAppear(animated)
+//       setBackground()
+//   }
+    
     override func loadView() {
         super.loadView()
         filterQuestions = FilterQuastions(questions: questionStorage)
         self.view = gameView
+        
     }
     
     func startTimer() {
@@ -74,7 +79,9 @@ class GameViewController: UIViewController {
     func makeSound(state: State) {
         switch state {
         case .pause:
-            player.pause()
+            if let player = player {
+                player.pause()
+            }
         case .resume:
             player.play()
         }
@@ -134,10 +141,10 @@ class GameViewController: UIViewController {
     }
     
     func buttonTapped() {
+        gameView.playAnimation(name: "bomb1", loopMode: .loop)
         playTimerBomb(for: duration)
         startTimer()
         gameView.updateLabel(with: task)
-        gameView.playAnimation(name: "bomb1", loopMode: .loop)
         navigationController?.addPauseButton()
     }
       
@@ -151,7 +158,6 @@ class GameViewController: UIViewController {
 extension GameViewController: GameViewDelegate {
     func launchButtonTapped() {
         buttonTapped()
-        print(filterQuestions?.getFilteredQuestions())
     }
 }
 

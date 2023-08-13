@@ -34,14 +34,11 @@ class GameEndView: UIView {
     private lazy var anotherTaskButton: UIButton = _anotherTaskButton
     private lazy var startOverButton: UIButton = _startOverButton
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setBackground()
         addSubviews()
         applyConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     private func addSubviews() {
@@ -126,7 +123,7 @@ extension GameEndView {
     var _taskLabel: UILabel {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = UIColor(named: "textColor")
+        label.textColor = UIColor().getTextColor()
         label.textAlignment = .center
         label.font = UIFont(name: "Dela Gothic One", size: 20)
         return label
@@ -134,9 +131,9 @@ extension GameEndView {
     
     var _anotherTaskButton: UIButton {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor().getButtonColor()
         button.setTitle("Другое\nЗадание", for: .normal)
-        button.tintColor = UIColor(named: "buttonTextColor")
+        button.tintColor = UIColor().getButtonTextColor()
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 24)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center
@@ -153,9 +150,9 @@ extension GameEndView {
         button.setTitle("Начать\nЗаново", for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor().getButtonColor()
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 24)
-        button.tintColor = UIColor(named: "buttonTextColor")
+        button.tintColor = UIColor().getButtonTextColor()
         button.layer.cornerRadius = 40
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(startOverButtonTapped), for: .touchUpInside)
