@@ -52,21 +52,21 @@ extension UINavigationController {
         topViewController?.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pauseButton)
     }
 
-    @objc func backButtonTapped() {
+    @objc func backButtonTapped(_ sender: UIButton) {
+        if let viewController = visibleViewController as? GameViewController {
+            viewController.elementsArePaused()
+        }
         popToRootViewController(animated: true)
         setNavigationBarTitle(for: self)
     }
     
     @objc func pauseButtonTapped(_ sender: UIButton) {
         if let viewController = visibleViewController as? GameViewController {
-            guard viewController.isGameStarted else { return }
-            
+
             if sender.isSelected {
-                viewController.updateLabel(with: "Здесь типа то же самое задание")
-                viewController.startTimer()
+                viewController.elementsAreResumed()
             } else {
-                viewController.updateLabel(with: "Пауза")
-                viewController.pauseTimer()
+                viewController.elementsArePaused()
             }
             sender.isSelected.toggle()
         }

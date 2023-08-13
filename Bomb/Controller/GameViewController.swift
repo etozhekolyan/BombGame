@@ -6,48 +6,78 @@
 //
 
 import UIKit
+import AVFoundation
+
+protocol GameControllerDelegate {
+    func launchButtonTapped()
+}
+
+enum Duration {
+    case ten
+    case twenty
+    case thirty
+}
+
+enum State {
+    case pause
+    case resume
+}
 
 class GameViewController: UIViewController {
+
+    private let model = GameModel(text: "Нажмите “Запустить” чтобы начать игру")
+    private let gameView = GameView()
     
-    private lazy var textLabel: UILabel = _textLabel
-    private lazy var imageView: UIImageView = _imageView
-    private lazy var launchButton: UIButton = _launchButton
+    var player: AVAudioPlayer!
+    
+    let duration: Duration = .ten
+    var state: State?
+    let task: String = "Здесь типа какое-то задание"
+  
     private let questionStorage = QuestionStorage()
     private var filterQuestions: FilterQuastions?
     
     weak var timer: Timer?
-    var secondsRemaining = 3
+    var totalSeconds: Int {
+        switch duration {
+        case .ten: return 11 // т.к. в updateTime secondsRemaining - 1, а значит 10 пропустит
+        case .twenty: return 20
+        case .thirty: return 30
+        }
+    }
     
-    var isGameStarted = false
+    lazy var secondsRemaining = totalSeconds
     
     override func viewDidLoad() {
         self.title = "Игра"
         super.viewDidLoad()
-        
         setBackground()
-        addSubviews()
-        applyConstraints()
+
+        gameView.delegate = self
+        gameView.updateLabel(with: model.text)
         
         filterQuestions?.filter()
+        navigationController?.setNavigationBarTitle(for: self)
+        navigationController?.addBackButton()
     }
     
     override func loadView() {
         super.loadView()
         filterQuestions = FilterQuastions(questions: questionStorage)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarTitle(for: self)
-        navigationController?.addBackButton()
-    }
-    
-    func updateLabel(with text: String) {
-        textLabel.text = text
+        self.view = gameView
     }
     
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    func makeSound(state: State) {
+        switch state {
+        case .pause:
+            player.pause()
+        case .resume:
+            player.play()
+        }
     }
     
     func pauseTimer() {
@@ -55,92 +85,80 @@ class GameViewController: UIViewController {
         timer = nil
     }
     
+    func elementsArePaused() {
+        makeSound(state: .pause)
+        gameView.pauseAnimation()
+        pauseTimer()
+        updateLabel(with: "Пауза")
+    }
+    
+    func elementsAreResumed() {
+        makeSound(state: .resume)
+        gameView.resumeAnimation()
+        startTimer()
+        updateLabel(with: task)
+    }
+    
     @objc func updateTimer() {
         secondsRemaining -= 1
         if secondsRemaining == 0 {
             pauseTimer()
             openNewScreen()
+        } else if secondsRemaining == 1 {
+            playSound(name: "BombExplosion")
+        } else if secondsRemaining == 10 {
+            gameView.removeAnimation()
+            gameView.playAnimation(name: "bomb2", loopMode: .playOnce)
         }
     }
     
-    @objc func launchButtonTapped() {
-//        isGameStarted = true
-//        launchButton.isHidden = true
-//        textLabel.text = "Здесь типа какое-то задание"
-//        navigationController?.addPauseButton()
-//        startTimer()
-        print(filterQuestions?.getFilteredQuestions())
+    func playSound(name: String) {
+        let url = Bundle.main.url(forResource: name, withExtension: "mp3")
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player.play()
     }
+    
+    func updateLabel(with text: String) {
+        gameView.updateLabel(with: text)
+    }
+    
+    func playTimerBomb(for duration: Duration) {
+        switch duration {
+        case .ten:
+            playSound(name: "TimerBombSeconds_10")
+        case .twenty:
+            playSound(name: "TimerBombSeconds_20")
+        case .thirty:
+            playSound(name: "TimerBombSeconds_30")
+        }
+    }
+    
+    func buttonTapped() {
+        playTimerBomb(for: duration)
+        startTimer()
+        gameView.updateLabel(with: task)
+        gameView.playAnimation(name: "bomb1", loopMode: .loop)
+        navigationController?.addPauseButton()
+    }
+      
+      func openNewScreen() {
+        let controller = GameEndViewController()
+        controller.delegate = self
+        navigationController?.pushViewController(controller, animated: true)
+    }
+}
 
-    private func addSubviews() {
-        view.addSubview(textLabel)
-        view.addSubview(imageView)
-        view.addSubview(launchButton)
-    }
-    
-    private func applyConstraints() {
-        textLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(130)
-            make.leading.trailing.equalToSuperview().inset(23)
-        }
-        
-        imageView.snp.makeConstraints { make in
-            make.bottom.equalTo(launchButton.snp.top).inset(-90)
-            make.leading.equalToSuperview().inset(74)
-            make.trailing.equalToSuperview().inset(0)
-            make.height.equalTo(352)
-        }
-        
-        launchButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(66)
-            make.leading.trailing.equalToSuperview().inset(50)
-            make.height.equalTo(79)
-        }
+extension GameViewController: GameViewDelegate {
+    func launchButtonTapped() {
+        buttonTapped()
+        print(filterQuestions?.getFilteredQuestions())
     }
 }
 
 extension GameViewController: GameEndViewControllerDelegate {
     func startOverGame(_ controller: GameEndViewController) {
-        launchButtonTapped()
-        secondsRemaining = 3
-    }
-}
-
-extension GameViewController {
-    
-    var _textLabel: UILabel {
-        let label = UILabel()
-        label.text = "Нажмите “Запустить” \n чтобы начать игру"
-        label.numberOfLines = 0
-        label.textColor = UIColor().getTextColor()
-        label.textAlignment = .center
-        label.font = UIFont(name: "Dela Gothic One", size: 25)
-        return label
-    }
-    
-    var _imageView: UIImageView {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "bomb")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }
-    
-    var _launchButton: UIButton {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor().getButtonColor()
-        button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 24)
-        button.setTitle("Запустить", for: .normal)
-        button.tintColor = UIColor().getButtonTextColor()
-        button.layer.cornerRadius = 40
-        button.clipsToBounds = true
-        button.addTarget(self, action: #selector(launchButtonTapped), for: .touchUpInside)
-        button.drawShadow()
-        return button
-    }
-    
-    func openNewScreen() {
-        let controller = GameEndViewController()
-        controller.delegate = self
-        navigationController?.pushViewController(controller, animated: true)
+        gameView.removeAnimation()
+        buttonTapped()
+        secondsRemaining = totalSeconds
     }
 }
