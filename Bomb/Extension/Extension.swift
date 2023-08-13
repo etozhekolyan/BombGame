@@ -20,6 +20,20 @@ extension UIViewController {
     }
 }
 
+extension UIView {
+    
+    func setBackground() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.bounds
+        gradientLayer.colors = [
+            UIColor.systemOrange.cgColor,
+            UIColor(red: 1, green: 187/255, blue: 48/255, alpha: 1).cgColor,
+            ]
+        self.layer.addSublayer(gradientLayer)
+    }
+}
+
+
 extension UILabel {
 
     func addSpaceBetweenLines(spacingValue: CGFloat) {

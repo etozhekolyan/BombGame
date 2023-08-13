@@ -30,4 +30,12 @@ class FilterQuastions {
     func getFilteredQuestions() -> [Question] {
         return filteredQuestions
     }
+    
+    func getRandomQuestion() -> String {
+        return getFilteredQuestions()[Int.random(in: 0...countQuestions)].question
+    }
+    
+    lazy var countQuestions: Int = {
+        return getFilteredQuestions().count
+    }()
 }

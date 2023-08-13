@@ -21,14 +21,12 @@ class GameView: UIView {
     private lazy var imageView: UIImageView = _imageView
     private lazy var launchButton: UIButton = _launchButton
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubviews()
-        applyConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override var frame: CGRect {
+        didSet {
+            setBackground()
+            addSubviews()
+            applyConstraints()
+        }
     }
     
     private func addSubviews() {
@@ -44,10 +42,10 @@ class GameView: UIView {
         }
         
         imageView.snp.makeConstraints { make in
-            make.bottom.equalTo(launchButton.snp.top).inset(-173)
-            make.leading.equalToSuperview().inset(83)
-            make.trailing.equalToSuperview().inset(45)
-            make.height.equalTo(193)
+            make.bottom.equalTo(launchButton.snp.top).inset(-171)
+            make.leading.equalToSuperview().inset(95)
+            make.trailing.equalToSuperview().inset(52)
+            make.height.equalTo(198)
         }
         
         launchButton.snp.makeConstraints { make in
@@ -78,7 +76,9 @@ class GameView: UIView {
     }
     
     func pauseAnimation() {
-        animationView.pause()
+        if let animation = animationView {
+            animation.pause()
+        }
     }
     
     func resumeAnimation() {
@@ -88,7 +88,7 @@ class GameView: UIView {
     @objc func launchButtonTapped() {
         delegate?.launchButtonTapped()
         launchButton.isHidden = true
-        imageView.removeFromSuperview()
+        imageView.isHidden = true
     }
 }
 
@@ -97,7 +97,7 @@ extension GameView {
     var _textLabel: UILabel {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = UIColor(named: "textColor")
+        label.textColor = UIColor().getTextColor()
         label.textAlignment = .center
         label.font = UIFont(name: "Dela Gothic One", size: 28)
         return label
@@ -111,10 +111,10 @@ extension GameView {
     
     var _launchButton: UIButton {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor().getButtonColor()
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 24)
         button.setTitle("Запустить", for: .normal)
-        button.tintColor = UIColor(named: "buttonTextColor")
+        button.tintColor = UIColor().getButtonTextColor()
         button.layer.cornerRadius = 40
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(launchButtonTapped), for: .touchUpInside)

@@ -32,7 +32,7 @@ class GameViewController: UIViewController {
     
     let duration: Duration = .ten
     var state: State?
-    let task: String = "Здесь типа какое-то задание"
+    lazy var task: String = ""
   
     private let questionStorage = QuestionStorage()
     private var filterQuestions: FilterQuastions?
@@ -51,14 +51,14 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         self.title = "Игра"
         super.viewDidLoad()
-        setBackground()
-
+        
         gameView.delegate = self
         gameView.updateLabel(with: model.text)
         
         filterQuestions?.filter()
         navigationController?.setNavigationBarTitle(for: self)
         navigationController?.addBackButton()
+        print()
     }
     
     override func loadView() {
@@ -74,7 +74,9 @@ class GameViewController: UIViewController {
     func makeSound(state: State) {
         switch state {
         case .pause:
-            player.pause()
+            if let player = player {
+                player.pause()
+            }
         case .resume:
             player.play()
         }
@@ -122,6 +124,11 @@ class GameViewController: UIViewController {
         gameView.updateLabel(with: text)
     }
     
+    func randomizeLabel() {
+        task = filterQuestions!.getRandomQuestion()
+        updateLabel(with: task)
+    }
+    
     func playTimerBomb(for duration: Duration) {
         switch duration {
         case .ten:
@@ -134,10 +141,10 @@ class GameViewController: UIViewController {
     }
     
     func buttonTapped() {
+        randomizeLabel()
+        gameView.playAnimation(name: "bomb1", loopMode: .loop)
         playTimerBomb(for: duration)
         startTimer()
-        gameView.updateLabel(with: task)
-        gameView.playAnimation(name: "bomb1", loopMode: .loop)
         navigationController?.addPauseButton()
     }
       
@@ -151,7 +158,6 @@ class GameViewController: UIViewController {
 extension GameViewController: GameViewDelegate {
     func launchButtonTapped() {
         buttonTapped()
-        print(filterQuestions?.getFilteredQuestions())
     }
 }
 
