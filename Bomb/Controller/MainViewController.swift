@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
     
     // функция выбора категории
     @objc func categoryButtonTapped() {
-        navigationController?.pushViewController(CategoriesViewController(), animated: true)
+        navigationController?.pushViewController(CategoryVewController(), animated: true)
     }
     
     

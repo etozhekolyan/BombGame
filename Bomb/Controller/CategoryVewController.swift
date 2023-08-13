@@ -1,5 +1,5 @@
 //
-//  CategoriesViewController.swift
+//  CategoryVewController.swift
 //  Bomb
 //
 //  Team №9 | Swift Marathon 8.0
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoriesViewController: UIViewController {
+class CategoryVewController: UIViewController {
     
     private func checkSelectedCategories() {
             let selectedCategories = UserCategoryKeeper.shared.getSelectedCategories()
@@ -120,7 +120,7 @@ class CategoriesViewController: UIViewController {
     }()
     
     private lazy var fifthButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .custom)
         button.category = .artAndCinema
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         let image = UIImageView()
@@ -239,17 +239,13 @@ class CategoriesViewController: UIViewController {
     
     @objc func buttonTapped(sender: UIButton) {
         if sender.isPressed {
-            sender.isPressed = false
             sender.layer.borderColor = UIColor().getButtonColor().cgColor
             UserCategoryKeeper.shared.removeCategory(sender.category!)
-            print(UserCategoryKeeper.shared.getSelectedCategories())
         } else {
-            sender.isPressed = true
             sender.layer.borderColor = UIColor().getButtonTextColor().cgColor
             UserCategoryKeeper.shared.addCategory(sender.category!)
-            print(UserCategoryKeeper.shared.getSelectedCategories())
         }
-        
+        sender.isPressed.toggle()
     }
 }
 
