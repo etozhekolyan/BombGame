@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     private lazy var rulesButton: UIButton = _rulesButton
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -122,7 +123,7 @@ extension MainViewController {
         
         let label = UILabel()
         label.text = "Игра для компании"
-        label.textColor = UIColor.black
+        label.textColor = UIColor().getTextColor()
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.font = UIFont(name: "Dela Gothic One", size: 35)
@@ -134,7 +135,7 @@ extension MainViewController {
         let label = UILabel()
         label.text = "БОМБА"
         label.textAlignment = .center
-        label.textColor = UIColor(named: "textColor")
+        label.textColor = UIColor().getButtonTextColor()
         label.font = UIFont(name: "Dela Gothic One", size: 60)
         
 
@@ -144,7 +145,7 @@ extension MainViewController {
     var _bombImageView: UIImageView {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "bombIcon")
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         //imageView.clipsToBounds = true
       
         
@@ -157,11 +158,12 @@ extension MainViewController {
     var _startGameButton: UIButton {
         let button = UIButton(type: .system)
         button.setTitle("Старт игры", for: .normal)
+        button.tintColor = UIColor().getButtonTextColor()
+        button.backgroundColor = UIColor().getButtonColor()
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 24)
-        button.tintColor = UIColor(named: "buttonTextColor")
-        button.backgroundColor = UIColor(named: "buttonColor")
         button.layer.cornerRadius = 35
         button.contentMode = .center
+        button.drawShadow()
    
         
         //  действие кнопки по нажатию
@@ -173,11 +175,12 @@ extension MainViewController {
     var _selectCategoryButton: UIButton {
         let button = UIButton(type: .system)
         button.setTitle("Категории", for: .normal)
-        button.tintColor = UIColor(named: "buttonTextColor")
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.tintColor = UIColor().getButtonTextColor()
+        button.backgroundColor = UIColor().getButtonColor()
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 24)
         button.layer.cornerRadius = 35
         button.contentMode = .center
+        button.drawShadow()
         
         //  действие кнопки по нажатию
         button.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
@@ -190,11 +193,12 @@ extension MainViewController {
         button.setTitle("?", for: .normal)
         button.titleLabel?.font = UIFont(name: "Dela Gothic One", size: 34)
         button.contentMode = .center
-        button.tintColor = UIColor(named: "buttonColor")
-        button.backgroundColor = UIColor(named: "buttonTextColor")
+        button.tintColor = UIColor().getButtonTextColor()
+        button.backgroundColor = UIColor().getButtonColor()
         button.layer.cornerRadius = 30
         button.layer.borderWidth = 4
-        button.layer.borderColor = UIColor(named: "buttonColor")?.cgColor
+        button.layer.borderColor = UIColor().getButtonTextColor().cgColor
+        button.drawShadow()
         
         
         //  действие кнопки по нажатию

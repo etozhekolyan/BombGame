@@ -33,6 +33,9 @@ class GameViewController: UIViewController {
     let duration: Duration = .ten
     var state: State?
     let task: String = "Здесь типа какое-то задание"
+  
+    private let questionStorage = QuestionStorage()
+    private var filterQuestions: FilterQuastions?
     
     weak var timer: Timer?
     var totalSeconds: Int {
@@ -49,15 +52,18 @@ class GameViewController: UIViewController {
         self.title = "Игра"
         super.viewDidLoad()
         setBackground()
-        
+
         gameView.delegate = self
         gameView.updateLabel(with: model.text)
+        
+        filterQuestions?.filter()
         navigationController?.setNavigationBarTitle(for: self)
         navigationController?.addBackButton()
     }
     
     override func loadView() {
         super.loadView()
+        filterQuestions = FilterQuastions(questions: questionStorage)
         self.view = gameView
     }
     
@@ -134,8 +140,8 @@ class GameViewController: UIViewController {
         gameView.playAnimation(name: "bomb1", loopMode: .loop)
         navigationController?.addPauseButton()
     }
-    
-    func openNewScreen() {
+      
+      func openNewScreen() {
         let controller = GameEndViewController()
         controller.delegate = self
         navigationController?.pushViewController(controller, animated: true)
@@ -145,6 +151,7 @@ class GameViewController: UIViewController {
 extension GameViewController: GameViewDelegate {
     func launchButtonTapped() {
         buttonTapped()
+        print(filterQuestions?.getFilteredQuestions())
     }
 }
 

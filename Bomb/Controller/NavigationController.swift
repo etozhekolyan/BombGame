@@ -8,12 +8,14 @@ import UIKit
 
 extension UINavigationController {
     
-    func setNavigationBarTitle(for viewController: UIViewController) {
+    func setNavigationBarTitle(for view: UIViewController) {
         let barTitle = UILabel()
-        barTitle.text = viewController.title
+        barTitle.text = view.title
         barTitle.font = UIFont(name: "Dela Gothic One", size: 30)
-        barTitle.textColor = UIColor(red: 127/255, green: 68/255, blue: 167/255, alpha: 1)
-        viewController.navigationItem.titleView = barTitle
+        barTitle.textColor = UIColor().getButtonTextColor()
+        view.navigationItem.titleView = barTitle
+        navigationBar.drawShadow()
+        
     }
 
     func addBackButton() {
@@ -21,10 +23,9 @@ extension UINavigationController {
         let backImage = UIImage(named: "BackButton")?.withRenderingMode(.alwaysTemplate)
         backButton.setImage(backImage, for: .normal)
         backButton.imageView?.contentMode = .scaleAspectFit
-        backButton.tintColor = UIColor().getButtonColor()
-
-        backButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        backButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        backButton.tintColor = UIColor().getButtonTextColor()
+        backButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
         
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
 
@@ -41,7 +42,7 @@ extension UINavigationController {
         pauseButton.setImage(playImage, for: .selected)
         
         pauseButton.imageView?.contentMode = .scaleAspectFit
-        pauseButton.tintColor = UIColor().getButtonColor()
+        pauseButton.tintColor = UIColor().getButtonTextColor()
 
         pauseButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
         pauseButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
@@ -56,6 +57,7 @@ extension UINavigationController {
             viewController.elementsArePaused()
         }
         popToRootViewController(animated: true)
+        setNavigationBarTitle(for: self)
     }
     
     @objc func pauseButtonTapped(_ sender: UIButton) {

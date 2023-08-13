@@ -54,19 +54,6 @@ class RulesView: UIView {
         return imageView
     }()
     
-    private let headLabel: UILabel = {
-       let label = UILabel()
-        label.heightAnchor.constraint(equalToConstant: 96).isActive = true
-        label.textAlignment = .center
-        label.contentMode = .bottom
-        label.font = UIFont(name: "Dela Gothic One", size: 32)
-        label.textColor = UIColor(red: 130 / 255,
-                                  green: 52 / 255,
-                                  blue: 208 / 255,
-                                  alpha: 1.0)
-        label.text = "Правила игры"
-        return label
-    }()
     
     private let anotherHeadLabel: UILabel = {
        let label = UILabel()
@@ -87,7 +74,7 @@ class RulesView: UIView {
         let label = UILabel(frame: CGRect(x: -4, y: 7, width: 103, height: 13))
         
         view.layer.cornerRadius = 15
-        view.backgroundColor = .purple
+        view.backgroundColor = UIColor().getButtonColor()
         view.layer.borderWidth = 1
         view.drawShadow()
         
@@ -96,7 +83,7 @@ class RulesView: UIView {
         
         label.textAlignment = .center
         label.text = "Старт игры"
-        label.textColor = .yellow
+        label.textColor = UIColor().getButtonTextColor()
         label.font = UIFont(name: "Dela Gothic One", size: 12)
         
         view.addSubview(label)
@@ -129,7 +116,6 @@ class RulesView: UIView {
         self.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(stackView)
-        stackView.addArrangedSubview(headLabel)
         stackView.addArrangedSubview(RuleViewItem(rule: rules[0], height: 50, exampleView: nil))
         stackView.addArrangedSubview(RuleViewItem(rule: rules[1], height: 150, exampleView: exampleButtonView))
         stackView.addArrangedSubview(RuleViewItem(rule: rules[2], height: 100, exampleView: nil))
@@ -162,7 +148,7 @@ class RulesView: UIView {
     private func layoutScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: self.topAnchor, constant: 100).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
